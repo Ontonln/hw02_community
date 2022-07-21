@@ -1,34 +1,24 @@
 {% extends 'base.html' %}
-{%block title%}Лев Толстой – зеркало русской революции.{% endblock %}
+{%block title%} {{ group.title }} {% endblock %}
 {%block content%}
-  <h1>Лев Толстой – зеркало русской революции.</h1>
+  <h1>{{ group.title }}</h1>
   <p>
-    Группа тайных поклонников графа.
+    {{ group.description }}
   </p>
   <article>
-        
     {% for post in posts %}
-      
     <ul>
       <li>
-  
         Автор: {{ post.author.get_full_name }}
-  
       </li>
       <li>
-  
         Дата публикации: {{ post.pub_date|date:"d E Y" }}
-  
       </li>
     </ul>      
     <p>
-  
   {{ post.text }}
-  
     </p>
-  
 {% if not forloop.last %}<hr>{% endif %}
-  
 {% endfor %}
   </article>
   <!-- под последним постом нет линии -->
